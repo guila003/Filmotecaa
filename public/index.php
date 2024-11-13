@@ -14,7 +14,7 @@
         <p>Your content goes here.</p>
     </main>
     <footer>
-        <p>&copy; 2023 Filmoteca. All rights reserved.</p>
+        <p>&copy; 2024 Filmoteca. All rights reserved.</p>
     </footer>
 </body>
 </html>
