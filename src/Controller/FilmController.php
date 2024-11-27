@@ -9,30 +9,18 @@ use App\Repository\FilmRepository;
 
 class FilmController
 {
-    public function list(array $queryParams)
+    public function listFilms(): void
     {
         $filmRepository = new FilmRepository();
         $films = $filmRepository->findAll();
 
-        /* $filmEntities = [];
-        foreach ($films as $film) {
-            $filmEntity = new Film();
-            $filmEntity->setId($film['id']);
-            $filmEntity->setTitle($film['title']);
-            $filmEntity->setYear($film['year']);
-            $filmEntity->setType($film['type']);
-            $filmEntity->setSynopsis($film['synopsis']);
-            $filmEntity->setDirector($film['director']);
-            $filmEntity->setCreatedAt(new \DateTime($film['created_at']));
-            $filmEntity->setUpdatedAt(new \DateTime($film['updated_at']));
-
-            $filmEntities[] = $filmEntity;
-        } */
-
-        dd($films);
-
-        // header('Content-Type: application/json');
-        // echo json_encode($films);
+        // Récupère l'instance de Twig
+        $twig = TwigConfig::getTwig();
+        
+        // Rendre la vue et passer la liste des films
+        echo $twig->render('film/list.html.twig', [
+            'films' => $films,
+        ]);
     }
 
     public function create()
