@@ -1,34 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des films</title>
-</head>
-<body>
-    <h1>Liste des films</h1>
-    <table>
-        <thead>
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des films{% endblock %}
+
+{% block header %}Liste des films{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Année</th>
+            <th>Genre</th>
+            <th>Réalisateur</th>
+            <th>Sypnosis</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for film in films %}
             <tr>
-                <th>Titre</th>
-                <th>Année</th>
-                <th>Genre</th>
-                <th>Réalisateur</th>
-                <th>Sypnosis</th>
+                <td>{{ film.title }}</td>
+                <td>{{ film.year }}</td>
+                <td>{{ film.type }}</td>
+                <td>{{ film.director }}</td>
+                <td>{{ film.synopsis }}</td>
             </tr>
-        </thead>
-        <tbody>
-            {% for film in films %}
-                <tr>
-                    <td>{{ film.title }}</td>
-                    <td>{{ film.year }}</td>
-                    <td>{{ film.type }}</td>
-                    <td>{{ film.director }}</td>
-                    <td>{{ film.synopsis }}</td>
-                    
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
